@@ -55,7 +55,7 @@ const SimpleGlobe = () => {
     const count = 4500;
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
-    const radius = 2.9;
+    const radius = 2.2;
 
     for (let i = 0; i < count; i++) {
       const theta = Math.random() * Math.PI * 2;
@@ -66,11 +66,13 @@ const SimpleGlobe = () => {
       const z = radius * Math.cos(phi);
 
       const i3 = i * 3;
-      positions[i3] = x;
-      positions[i3 + 1] = y;
-      positions[i3 + 2] = z;
 
-      const intensity = 0.5 + 0.5 * Math.sin(phi);
+      positions[i * 3] = x;
+      positions[i * 3 + 1] = y;
+      positions[i * 3 + 2] = z;
+
+
+      const intensity = 0.9 + 0.9 * Math.sin(phi);
       colors[i3] = 0.5 + intensity * 0.3;
       colors[i3 + 1] = 0.3 + intensity * 0.4;
       colors[i3 + 2] = 0.8 + intensity * 0.2;
