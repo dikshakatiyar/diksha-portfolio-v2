@@ -8,7 +8,7 @@ const Particles = () => {
   const ref = useRef<THREE.Points>(null);
   
   const particlesPosition = useMemo(() => {
-    const positions = new Float32Array(1500); // Reduced from 3000
+    const positions = new Float32Array(3500); // Reduced from 3000
     
     for (let i = 0; i < 500; i++) { // Reduced from 1000
       const i3 = i * 3;
@@ -22,8 +22,8 @@ const Particles = () => {
 
   useFrame((state) => {
     if (ref.current) {
-      ref.current.rotation.x = state.clock.elapsedTime * 0.02;
-      ref.current.rotation.y = state.clock.elapsedTime * 0.03;
+      ref.current.rotation.x = state.clock.elapsedTime * 0.22; //ch
+      ref.current.rotation.y = state.clock.elapsedTime * 0.33; //ch
     }
   });
 
@@ -32,7 +32,7 @@ const Particles = () => {
       <PointMaterial
         transparent
         color="#8b5cf6"
-        size={0.03}
+        size={0.05}
         sizeAttenuation={true}
         depthWrite={false}
       />
@@ -44,13 +44,13 @@ const SimpleGlobe = () => {
   const ref = useRef<THREE.Points>(null);
   
   const [positions, colors] = useMemo(() => {
-    const positions = new Float32Array(1000 * 3); // Reduced from 2000
-    const colors = new Float32Array(1000 * 3);
+    const positions = new Float32Array(2000 * 3); // Reduced from 2000
+    const colors = new Float32Array(2000 * 3);
     
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 2000; i++) {
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(Math.random() * 2 - 1);
-      const radius = 1.5;
+      const radius = 3.5;
       
       const x = radius * Math.sin(phi) * Math.cos(theta);
       const y = radius * Math.sin(phi) * Math.sin(theta);
@@ -93,9 +93,9 @@ const FloatingBox = ({ position }: { position: [number, number, number] }) => {
   
   useFrame((state) => {
     if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.elapsedTime * 0.3;
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.2;
-      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime + position[0]) * 0.3;
+      meshRef.current.rotation.x = state.clock.elapsedTime * 0.5;
+      meshRef.current.rotation.y = state.clock.elapsedTime * 0.4;
+      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime + position[0]) * 0.5;
     }
   });
 
@@ -119,17 +119,21 @@ const ThreeBackground = () => {
         <Canvas
           camera={{ position: [0, 0, 4], fov: 50 }}
           style={{ background: 'transparent' }}
-          dpr={[1, 1.5]} // Limit pixel ratio for better performance
-          performance={{ min: 0.5 }} // Performance settings
+          dpr={[2, 2.5]} // Limit pixel ratio for better performance
+          performance={{ min: 1.5 }} // Performance settings
         >
-          <ambientLight intensity={0.3} />
-          <pointLight position={[5, 5, 5]} intensity={0.5} color="#8b5cf6" />
+          <ambientLight intensity={0.9} />
+          <pointLight position={[10, 10, 10]} intensity={1.5} color="#C68EFD" />
           
           <Particles />
           <SimpleGlobe />
           
           <FloatingBox position={[-2, 1, -2]} />
           <FloatingBox position={[2, -1, -2]} />
+          <FloatingBox position={[1, 2, -2]} />
+          <FloatingBox position={[-3, -1, 1]} />
+          <FloatingBox position={[0, 3, -3]} />
+
         </Canvas>
       </Suspense>
     </div>
