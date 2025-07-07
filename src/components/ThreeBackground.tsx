@@ -29,8 +29,8 @@ const Particles = () => {
 
   useFrame((state) => {
     if (ref.current) {
-      ref.current.rotation.x = state.clock.elapsedTime * 0.22;
-      ref.current.rotation.y = state.clock.elapsedTime * 0.33;
+      ref.current.rotation.x = state.clock.elapsedTime * 0.12;
+      ref.current.rotation.y = state.clock.elapsedTime * 0.23;
     }
   });
 
@@ -55,7 +55,7 @@ const SimpleGlobe = () => {
     const count = 4500;
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
-    const radius = 1.5;
+    const radius = 2.9;
 
     for (let i = 0; i < count; i++) {
       const theta = Math.random() * Math.PI * 2;
@@ -132,11 +132,11 @@ const ThreeBackground = () => {
         <Canvas
           camera={{ position: [0, 0, 6], fov: 50 }}
           style={{ background: 'transparent' }}
-          dpr={[2, 2.5]}
-          performance={{ min: 1.5 }}
+          dpr={[1, 1.5]}
+          performance={{ min: 0.9 }}
         >
-          <ambientLight intensity={0.9} />
-          <pointLight position={[10, 10, 10]} intensity={1.5} color="#C68EFD" />
+          <ambientLight intensity={0.7} />
+          <pointLight position={[7, 7, 7]} intensity={1.5} color="#C68EFD" />
 
           <Particles />
           <SimpleGlobe />
