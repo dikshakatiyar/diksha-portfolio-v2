@@ -11,7 +11,7 @@ const Globe = () => {
     const positions = new Float32Array(2800 * 3); // Reduced complexity ///changes
     const colors = new Float32Array(2800 * 3);
     
-    for (let i = 0; i < 800; i++) {
+    for (let i = 0; i < 2800; i++) {
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(Math.random() * 2 - 1);
       const radius = 3.8;   //changes
