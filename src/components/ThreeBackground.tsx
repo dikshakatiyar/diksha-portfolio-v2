@@ -29,8 +29,8 @@ const Particles = () => {
 
   useFrame((state) => {
     if (ref.current) {
-      ref.current.rotation.x = state.clock.elapsedTime * 0.12;
-      ref.current.rotation.y = state.clock.elapsedTime * 0.23;
+      ref.current.rotation.x = state.clock.elapsedTime * 0.05;
+      ref.current.rotation.y = state.clock.elapsedTime * 0.15;
     }
   });
 
