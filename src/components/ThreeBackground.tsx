@@ -6,7 +6,7 @@ import * as THREE from 'three';
 // 💠 Particle Field — With higher speed and count
 const Particles = () => {
   const ref = useRef<THREE.Points>(null);
-  const count = 3000;
+  const count = 4000;
 
   const [positions, colors] = useMemo(() => {
     const positions = new Float32Array(count * 3);
@@ -52,10 +52,10 @@ const SimpleGlobe = () => {
   const ref = useRef<THREE.Points>(null);
 
   const [positions, colors] = useMemo(() => {
-    const count = 3500;
+    const count = 4500;
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
-    const radius = 4;
+    const radius = 1.5;
 
     for (let i = 0; i < count; i++) {
       const theta = Math.random() * Math.PI * 2;
