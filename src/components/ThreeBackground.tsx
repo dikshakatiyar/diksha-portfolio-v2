@@ -83,8 +83,8 @@ const SimpleGlobe = () => {
 
   useFrame((state) => {
     if (ref.current) {
-      ref.current.rotation.y = state.clock.elapsedTime * 0.15;
-      ref.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.05) * 0.1;
+      ref.current.rotation.y = state.clock.elapsedTime * 0.05;
+      ref.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.025) * 0.1;
     }
   });
 
