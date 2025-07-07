@@ -72,10 +72,10 @@ const SimpleGlobe = () => {
       positions[i * 3 + 2] = z;
 
 
-      const intensity = 0.9 + 0.9 * Math.sin(phi);
-      colors[i3] = 0.5 + intensity * 0.3;
-      colors[i3 + 1] = 0.3 + intensity * 0.4;
-      colors[i3 + 2] = 0.8 + intensity * 0.2;
+      const intensity = 0.9 + 0.9 * Math.sin(phi); // change
+      colors[i3] = 0.9 + intensity * 0.7;
+      colors[i3 + 1] = 0.7 + intensity * 0.8;
+      colors[i3 + 2] = 1.5 + intensity * 0.5;
     }
 
     return [positions, colors];
@@ -91,9 +91,9 @@ const SimpleGlobe = () => {
   return (
     <Points ref={ref} positions={positions} colors={colors} stride={3} frustumCulled={false}>
       <PointMaterial
-        vertexColors
+        color="0118D8"
         transparent
-        size={0.025}
+        size={0.06}
         sizeAttenuation={true}
         depthWrite={false}
       />
