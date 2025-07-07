@@ -8,13 +8,13 @@ const Globe = () => {
   const ref = useRef<THREE.Points>(null);
   
   const [positions, colors] = useMemo(() => {
-    const positions = new Float32Array(800 * 3); // Reduced complexity
-    const colors = new Float32Array(800 * 3);
+    const positions = new Float32Array(1800 * 3); // Reduced complexity ///changes
+    const colors = new Float32Array(1800 * 3);
     
     for (let i = 0; i < 800; i++) {
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(Math.random() * 2 - 1);
-      const radius = 1.8;
+      const radius = 2.8;   //changes
       
       const x = radius * Math.sin(phi) * Math.cos(theta);
       const y = radius * Math.sin(phi) * Math.sin(theta);
@@ -24,7 +24,7 @@ const Globe = () => {
       positions[i * 3 + 1] = y;
       positions[i * 3 + 2] = z;
       
-      const intensity = 0.6 + 0.4 * Math.sin(phi);
+      const intensity = 1.2 + 0.8 * Math.sin(phi); //changes
       colors[i * 3] = 0.4 + intensity * 0.4;
       colors[i * 3 + 1] = 0.2 + intensity * 0.5;
       colors[i * 3 + 2] = 0.9 + intensity * 0.1;
