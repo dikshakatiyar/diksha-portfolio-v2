@@ -93,7 +93,7 @@ const SimpleGlobe = () => {
       <PointMaterial
         color="0118D8"
         transparent
-        size={0.06}
+        size={0.04}
         sizeAttenuation={true}
         depthWrite={false}
       />
