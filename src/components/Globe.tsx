@@ -8,13 +8,13 @@ const Globe = () => {
   const ref = useRef<THREE.Points>(null);
   
   const [positions, colors] = useMemo(() => {
-    const positions = new Float32Array(1800 * 3); // Reduced complexity ///changes
-    const colors = new Float32Array(1800 * 3);
+    const positions = new Float32Array(2800 * 3); // Reduced complexity ///changes
+    const colors = new Float32Array(2800 * 3);
     
     for (let i = 0; i < 800; i++) {
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(Math.random() * 2 - 1);
-      const radius = 2.8;   //changes
+      const radius = 3.8;   //changes
       
       const x = radius * Math.sin(phi) * Math.cos(theta);
       const y = radius * Math.sin(phi) * Math.sin(theta);
@@ -35,8 +35,8 @@ const Globe = () => {
 
   useFrame((state) => {
     if (ref.current) {
-      ref.current.rotation.y = state.clock.elapsedTime * 0.08;
-      ref.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.03) * 0.05;
+      ref.current.rotation.y = state.clock.elapsedTime * 0.8;
+      ref.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.18) * 0.1;
     }
   });
 
